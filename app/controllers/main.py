@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI, APIRouter
 from starlette.middleware.cors import CORSMiddleware
 
-from controllers.routes.main import router
+from callmaster.app.controllers.routes.main import router
 from .settings import config
 
 

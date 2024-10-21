@@ -1,6 +1,6 @@
 from pydantic_settings import SettingsConfigDict
 
-from settings import AppSettings
+from callmaster.app.settings import AppSettings
 
 
 class Settings(AppSettings):

@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from app.utils.common import get_env_path
+from callmaster.app.utils.common import get_env_path
 
 
 class AppSettings(BaseSettings):

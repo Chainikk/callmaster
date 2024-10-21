@@ -1,7 +1,7 @@
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncEngine
 
-from models.data_models.client import ClientModel
+from callmaster.app.models.data_models.client import ClientModel
 
 
 class ClientService:
@@ -10,9 +10,6 @@ class ClientService:
         self._database_engine = database_engine
 
     async def register(self, new_client: dict) -> ClientModel:
-        # todo: осуществить проверку пароля
-        # todo: осуществить проверку телефона
-        # todo: осуществить проверку почты
 
         async with self._database_engine() as session:
             try:
@@ -55,7 +52,6 @@ class ClientService:
     async def update_phone(self, client_id: int, new_phone: str) -> None:
         async with self._database_engine() as session:
             try:
-                # todo: осущетсвить проверку формата для телефона перед сменой
                 stmt = (
                     update(self._client_model)
                     .where(self._client_model.id == client_id)
@@ -70,8 +66,6 @@ class ClientService:
     async def change_password(self, client_id: int, old_password: str, new_password: str) -> None:
         async with self._database_engine() as session:
             try:
-                # todo: осуществить првоерку пароля перед сменой
-
                 stmt = (
                     update(self._client_model)
                     .where(self._client_model.id == client_id)

@@ -1,7 +1,7 @@
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime
 
-from app.models.data_models.main import Base
+from callmaster.app.models.data_models.main import Base
 
 
 class ClientModel(Base):

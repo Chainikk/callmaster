@@ -1,5 +1,5 @@
-from views.client import NewClient, ViewClient
-from models.service import client_service
+from callmaster.app.views.client import NewClient, ViewClient
+from callmaster.app.models.service import client_service
 
 
 async def create_client(new_client: NewClient) -> ViewClient:

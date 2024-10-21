@@ -3,8 +3,8 @@ from psycopg2 import sql
 
 from sqlalchemy import create_engine, inspect
 
-from app.models.data_models.client import ClientModel
-from app.models.database.settings import config
+from callmaster.app.models.data_models.client import ClientModel
+from callmaster.app.models.database.settings import config
 
 
 def create_db():
