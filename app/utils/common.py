@@ -1,10 +1,7 @@
 import os
-from pathlib import Path
-
-
-def get_project_root():
-    return Path(__file__).parent.parent
 
 
 def get_env_path():
-    return os.path.join(get_project_root(), ".env")
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    env_file_path = os.path.abspath(os.path.join(current_directory, '.env'))
+    return env_file_path
