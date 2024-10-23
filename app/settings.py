@@ -3,6 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from callmaster.app.utils.common import get_env_path
 
 
+#print(get_env_path())
 class AppSettings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=get_env_path(),
