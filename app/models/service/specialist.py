@@ -48,3 +48,32 @@ class SpecialistService:
             except Exception as e:
                 await session.rollback()
                 raise e
+
+    async def update_phone(self, specialist_id: int, new_phone: str) -> None:
+        async with self._database_engine() as session:
+            try:
+                stmt = (
+                    update(self._specialist_model)
+                    .where(self._specialist_model.id == specialist_id)
+                    .values(phone_number=new_phone)
+                )
+                await session.execute(stmt)
+                await session.commit()
+            except Exception as e:
+                await session.rollback()
+                raise e
+
+    async def change_password(self, specialist_id: int, old_password: str, new_password: str) -> None:
+        async with self._database_engine() as session:
+            try:
+                stmt = (
+                    update(self._specialist_model)
+                    .where(self._specialist_model.id == specialist_id)
+                    .values(password=new_password)
+                )
+                await session.execute(stmt)
+                await session.commit()
+            except Exception as e:
+                await session.rollback()
+                raise e
+
