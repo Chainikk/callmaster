@@ -6,8 +6,8 @@ from pydantic import BaseModel, ConfigDict
 
 
 class SpecializationEnum(str, Enum):
-    electrician = 'electrician'
-    plumber = 'plumber'
+    cardiologist = 'tv'
+    dermatologist = 'pc'
 
 
 class NewSpecialist(BaseModel):
