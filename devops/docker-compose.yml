@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Slava2004
+      POSTGRES_DB: service
+    ports:
+      - "15444:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: ../
+      dockerfile: devops/Dockerfile
+    container_name: callmasters_app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@localhost:15444/service
+    ports:
+      - 8075:8075
+
+volumes:
+  postgres_data:
